@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#userImg").click(function(){
+				$(".popUp").slideToggle("slow");
+			});
+			$("#logout").click(function(){
+					$(".popUp").hide();
+				});
+
+		});
+	</script>
+	<title>Dashboard</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    background: url(images/background.jpg) 50% 50% no-repeat;
+    background-size: cover;
+    display: table;
+    color: azure;
+}
+		.sideNav{
+			height: 100vh;
+			width: 20%;
+			background-color: #151716;
+			float: left;
+		}
+		.header{
+			height: 50px;
+			width: 80%;
+			float: left;
+			background-color: #293D55;
+		}
+		.tag{
+			height: 50px;
+			width: 100%;
+			background-color: #2B3537;
+			color: white;
+		}
+		#sub1{
+			font-size: 22px;
+			display: inline-block;
+			font-family: sans-serif;
+			font-weight: bold;
+			padding-left:50px;
+			padding-top: 10px;
+		}
+		#sub2{
+			font-size: 22px;
+			display: inline-block;
+			font-family: sans-serif;
+			font-weight: bold;
+			color: tomato;
+			padding-left:5px;
+		}
+		.userName{
+			height: 90px;
+			width: 100%;
+			background-color: tomato;
+		}
+		.userName h2{
+			text-align: center;
+			color: black;
+			font-family: sans-serif;
+			font-weight: bold;
+			padding-top: 15px;
+		}
+		.userName h3{
+			text-align: center;
+			color: white;
+			font-family: sans-serif;
+			font-weight: bold;
+			padding-top: 5px;
+		}
+		.navLinks{
+			width: 100%;
+		}
+		.link{
+			color: white;
+			border-top: 1px solid grey;
+			border-bottom: 1px solid grey;
+			padding:15px;
+			font-size: 18px;		
+		}
+		.link i{
+			display: inline-block;
+		}
+		.link p{
+			display: inline-block;
+			padding-left:20px; 
+		}
+		.link:hover{
+			background-color: #293D55;
+			color: tomato;
+			transition: 0.7s;
+		}
+		.leftIcon{
+			float: left;
+			height: 50px;
+			width: 50px;
+		}
+		.leftIcon i{
+			color: tomato;
+			font-size: 25px;
+			padding: 14px;
+		}
+		.rightIcons{
+			height: 50px;
+			width: 250px;
+			float: right;
+		}
+		.rightIcons i{
+			color: tomato;
+			padding: 10px;
+			font-size: 20px;
+			vertical-align: 12px;
+		}
+		.rightIcons img{
+			margin-left: 15px;
+		}
+		.rightIcons i:hover{
+			outline:1px solid tomato;
+			border-radius: 5px;
+		}
+		.popUp{
+			height: 50px;
+			width: 100px;
+			background-color: #293D55;
+			float: right;
+			display: none;
+			border:2px solid tomato;
+			border-radius: 20px;
+		}
+		.popUp a{
+			text-decoration: none;
+			color: tomato;
+			font-size: 20px;
+			padding: 20px;
+			line-height: 50px;
+		}
+		.box{
+			background-color: black;
+			height: 650px;
+			width: 70%;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-35%,-50%);
+			border:5px solid tomato;
+		}
+		.nestedBox{
+			background-color: black;
+			height: 550px;
+			width: 90%;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			border:5px solid #33cc33;
+			color: white
+		}
+		
+		input[type="Date"],input[type="Time"],input[type="text"], input[type="number"]{
+			padding: 10px;
+			border:none;
+			outline: none;
+			border-bottom: 2px solid tomato;
+			background-color: transparent;
+			color: white;
+		}
+		
+		.heading1{
+			color:white;
+		}
+		.selection,.gendarSelect,.Residence_list,.Specialty,.textarea_type{
+		padding: 10px;
+			border:none;
+			outline: none;
+			border-bottom: 2px solid tomato;
+			background-color: transparent;
+			color: white;
+			background-color: black;	
+		}
+		.tablehandle{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+		}
+		input[type="submit"]{
+			padding: 10px;
+			border:none;
+			outline: none;
+			background-color: #33cc33;
+			width: 100px;
+			color: black;
+			cursor: pointer;
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div class="sideNav">
+		<div class="tag">
+			<h2 id="sub1">Health</h2> <h2 id="sub2">Admin</h2>
+		</div>
+		<div class="userName">
+			<h2>Welcome</h2>
+			<h3>Mr.User</h3>
+		</div>
+		<div class="navLinks">
+			<a href="dashboardLayout.html"><div class="link"><i class="fas fa-tachometer-alt"></i><p>Dashboard</p></div></a>
+			<a href="#"><div class="link"><i class="fas fa-user-md"></i><p>Doctor</p></div></a>
+			<a href="#"><div class="link"><i class="fas fa-user-alt"></i><p>Patient</p></div></a>
+			<a href="#"><div class="link"><i class="fas fa-sitemap"></i><p>Department</p></div></a>
+			<a href="Schedule.html"><div class="link"><i class="fas fa-clipboard-list"></i><p>Schedule</p></div></a>
+			<a href="appointment.html"><div class="link"><i class="far fa-calendar-check"></i><p>Appointment</p></div></a>
+			<a href="#"><div class="link"><i class="far fa-credit-card"></i><p>Payment</p></div></a>
+			<a href="#"><div class="link"><i class="fas fa-file-medical-alt"></i><p>Report</p></div></a>
+			<a href="#"><div class="link"><i class="fas fa-bed"></i><p>Bed Manager</p></div></a>
+			<a href="#"><div class="link"><i class="far fa-file-alt"></i><p>Notice</p></div></a>
+			<a href="#"><div class="link"><i class="fas fa-power-off"></i><p>Logout</p></div></a>
+		</div>
+	</div>
+	<div class="header">
+		<div class="leftIcon">
+			<a href=""><i class="fas fa-align-justify"></i></a>
+		</div>	
+		<div class="rightIcons">
+			<a href="#"><i class="fas fa-shopping-cart"></i></a>
+			<a href="#"><i class="fas fa-envelope"></i></a>
+			<a href="#"><i class="fas fa-bell"></i></a>
+			<a href="#"><i class="far fa-file-alt"></i></a>
+			<a href="#"><img src="images/user.png" height="45" width="50" id="userImg"></a>
+		</div>
+	</div>
+	<div class="popUp">
+		<a href="" id="logout">Logout</a>
+	</div>
+	<div class="box">
+		<h1 align="center" class="heading1">Appointment Form</h1>
+		<div class="nestedBox">
+			<div class="tablehandle">
+			<table align="center">
+				<tr>
+					<td><label>Appointment Date</label></td>
+					<td><input type="Date" placeholder="Date"></td>
+				</tr>
+				<tr>
+					<td><label>Appointment Time</label></td>
+					<td><input type="Time" placeholder="Time"></td>
+				</tr>
+				<tr>
+					<td><label>Doctor Name</label></td>
+					<td><select class="selection">
+						<option>Ramesh Kumar</option>
+						<option>Vinod Kumar</option>
+						<option>Munesh Kumar</option>
+						<option>Narindar Singh Modi</option>
+						<option>Karan Kumar</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td><label>CNIC No</label></td>
+					<td><input type="text" placeholder="XXXXX-XXXXXXX-X"></td>
+				</tr>
+				<tr>
+					<td><label>Cotact No</label></td>
+					<td><input type="number" maxlength = "12" placeholder="XXXXX-XXXXXXX"></td>
+				</tr>
+				<tr>
+					<td><label>Gendar</label></td>
+					<td> <select class="gendarSelect">
+						<option value="">--Please Select--</option>
+						<option value="male">Male</option>
+						<option value="female">Female</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td><label>Medical_Record</label></td>
+					<td><input type="text" placeholder="Record_Here"></td>
+				</tr>
+				<tr>
+					<td><label>Residence</label></td>
+					<td><select class="Residence_list">
+						<option value="">--Please Select--</option>
+						<option value="264">Grenada</option>
+						<option value="265">Guatemala</option>
+						<option value="266">Guinea</option>
+						<option value="267">Guinea-Bissau</option>
+						<option value="268">Guyana</option>
+						<option value="269">Haiti</option>
+						<option value="270">Honduras</option>
+						<option value="271">Hungary</option>
+						<option value="272">Iceland</option>
+						<option value="273">India</option>
+						<option value="274">Indonesia</option>
+						<option value="275">Iran</option>
+						<option value="276">Iraq</option>
+						<option value="277">Ireland</option>
+						<option value="278">Israel</option>
+						<option value="279">Italy</option>
+						<option value="280">Ivory Coast</option>
+						<option value="281">Jamaica</option>
+						<option value="282">Japan</option>
+						<option value="283">Jordan</option>
+						<option value="284">Kazakhstan</option>
+						<option value="285">Kenya</option>
+						<option value="286">Kiribati</option>
+						<option value="287">Korea North</option>
+						<option value="288">Korea South</option>
+						<option value="289">Kosovo</option>
+						<option value="290">Kuwait</option>
+						<option value="291">Kyrgyzstan</option>
+						<option value="292">Laos</option>
+						<option value="293">Latvia</option>
+						<option value="294">Lebanon</option>
+						<option value="295">Lesotho</option>
+						<option value="296">Liberia</option>
+						<option value="297">Libya</option>
+						<option value="298">Liechtenstein</option>
+						<option value="299">Lithuania</option>
+						<option value="300">Luxembourg</option>
+						<option value="301">Macedonia</option>
+						<option value="302">Madagascar</option>
+						<option value="303">Malawi</option>
+						<option value="304">Malaysia</option>
+						<option value="305">Maldives</option>
+						<option value="306">Mali</option>
+						<option value="307">Malta</option>
+						<option value="308">Marshall Islands</option>
+						<option value="309">Mauritania</option>
+						<option value="310">Mauritius</option>
+						<option value="311">Mexico</option>
+						<option value="312">Micronesia</option>
+						<option value="313">Moldova</option>
+						<option value="314">Monaco</option>
+						<option value="315">Mongolia</option>
+						<option value="316">Montenegro</option>
+						<option value="317">Morocco</option>
+						<option value="318">Mozambique</option>
+						<option value="319">Myanma</option>
+						<option value="320">Namibia</option>
+						<option value="321">Nauru</option>
+						<option value="322">Nepal</option>
+						<option value="323">Netherlands</option>
+						<option value="324">New Zealand</option>
+						<option value="325">Nicaragua</option>
+						<option value="326">Niger</option>
+						<option value="327">Nigeria</option>
+						<option value="328">Norway</option>
+						<option value="329">Oman</option>
+						<option value="330">Pakistan</option>
+						<option value="331">Palau</option>
+						<option value="332">Panama</option>
+						<option value="333">Papua New Guinea</option>
+						<option value="334">Paraguay</option>
+						<option value="335">Peru</option>
+						<option value="336">Philippines</option>
+						<option value="337">Poland</option>
+						<option value="338">Portugal</option>
+						<option value="339">Qatar</option>
+						<option value="340">Romania</option>
+						<option value="341">Russian Federation</option>
+						<option value="370">Thailand</option>
+						<option value="371">Togo</option>
+						<option value="372">Tonga</option>
+						<option value="373">Trinidad &amp; Tobago</option>
+						<option value="374">Tunisia</option>
+						<option value="375">Turkey</option>
+						<option value="376">Turkmenistan</option>
+						<option value="377">Tuvalu</option>
+						<option value="378">Uganda</option>
+						<option value="379">Ukraine</option>
+						<option value="380">United Arab Emirates</option>
+						<option value="381">United Kingdom</option>
+						<option value="382">United States</option>
+						<option value="383">Uruguay</option>
+						<option value="384">Uzbekistan</option>
+						<option value="385">Vanuatu</option>
+						<option value="386">Vatican City</option>
+						<option value="387">Venezuela</option>
+						<option value="388">Vietnam</option>
+						<option value="389">Yemen</option>
+						<option value="390">Zambia</option>
+						<option value="391">Zimbabwe</option>
+						<option value="392">PAK</option>
+					</select></br>
+					</td>
+				</tr>
+				<tr>
+					<td><label>Specialty</label></td>
+					<td><select class="Specialty">
+						<option selected="selected" value="-1">--Please Select--</option>
+						<option value="ANAESTHESIA">ANAESTHESIA</option>
+						<option value="ANAESTHESIA AND PAIN MANAGMENT">ANAESTHESIA AND PAIN MANAGMENT</option>
+						<option value="ANAESTHESIOLOGY">ANAESTHESIOLOGY</option>
+						<option value="BREAST SURGERY">BREAST SURGERY</option>
+						<option value="CARDIOLOGY">CARDIOLOGY</option>
+						<option value="CARDIOTHORACIC SURGERY">CARDIOTHORACIC SURGERY</option>
+						<option value="CLINICAL PSYCHOLOGIST">CLINICAL PSYCHOLOGIST</option>
+						<option value="DENTISTRY">DENTISTRY</option>
+						<option value="DERMATOLOGY">DERMATOLOGY</option>
+						<option value="DIETITIAN">DIETITIAN</option>
+						<option value="ENDOCRINOLOGY">ENDOCRINOLOGY</option>
+						<option value="ENDOCRINOLOGY AND CARDIOLOGY">ENDOCRINOLOGY AND CARDIOLOGY</option>
+						<option value="FAMILY AND ADOLESCENT MEDICINE">FAMILY AND ADOLESCENT MEDICINE</option>
+						<option value="FAMILY MEDICINE">FAMILY MEDICINE</option>
+						<option value="GASTROENTEROLOGY">GASTROENTEROLOGY</option>
+						<option value="GENERAL PAEDIATRICS">GENERAL PAEDIATRICS</option>
+						<option value="GENERAL SURGERY">GENERAL SURGERY</option>
+						<option value="GI">GI</option>
+						<option value="HAEMATOLOGY">HAEMATOLOGY</option>
+						<option value="HOME HEALTH PROG">HOME HEALTH PROG</option>
+						<option value="INFECTIOUS DISEASES">INFECTIOUS DISEASES</option>
+						<option value="INTERNAL MEDICINE">INTERNAL MEDICINE</option>
+						<option value="MEDICAL ONCOLOGY">MEDICAL ONCOLOGY</option>
+						<option value="NEONATOLOGY">NEONATOLOGY</option>
+						<option value="NEPHROLOGY">NEPHROLOGY</option>
+						<option value="NEPHROLOGY TRANSPLANT MEDICINE">NEPHROLOGY TRANSPLANT MEDICINE</option>
+						<option value="NEUROLOGY ">NEUROLOGY </option>
+						<option value="NEUROSURGERY">NEUROSURGERY</option>
+						<option value="NUTRITION">NUTRITION</option>
+						<option value="NUTRITIONIST">NUTRITIONIST</option>
+						<option value="OBSTETRICS AND GYNAECOLOGY">OBSTETRICS AND GYNAECOLOGY</option>
+						<option value="OBSTETRICS AND GYNAECOLOGY">OBSTETRICS AND GYNAECOLOGY</option>
+						<option value="OCCUPATIONAL THERAPY">OCCUPATIONAL THERAPY</option>
+						<option value="ONCOLOGY">ONCOLOGY</option>
+						<option value="OPHTHALMOLOGY">OPHTHALMOLOGY</option>
+						<option value="ORTHOPAEDIC SURGERY">ORTHOPAEDIC SURGERY</option>
+						<option value="OTOLARYNGOLOGY">OTOLARYNGOLOGY</option>
+						<option value="PAEDIATRIC">PAEDIATRIC</option>
+						<option value="PAEDIATRIC CARDIOLOGY">PAEDIATRIC CARDIOLOGY</option>
+						<option value="PAEDIATRIC CLINICAL GENETICS">PAEDIATRIC CLINICAL GENETICS</option>
+						<option value="PAEDIATRIC CRITICAL CARE MED.">PAEDIATRIC CRITICAL CARE MED.</option>
+					</select>
+					</td>
+				</tr>
+				<tr>
+					<td><label>Email_Address</label></td>
+					<td><input type="text" placeholder="Email_Address"></td>
+				</tr>
+				<tr>
+					<td><label>Reason for appointment:</label></td>
+					<td><textarea maxlength="5000" class="textarea_type"></textarea></td>
+				</tr>
+				<tr>
+					<td align="center" colspan="2"><input type="submit" value="Submit"></td>
+				</tr>
+
+			</table>
+			<div>
+		</div>
+	</div>
+</body>
+</html>

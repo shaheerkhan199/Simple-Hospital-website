@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>web page</title>
+<script type="text/javascript">
+	
+</script>
+<style type="text/css">
+	
+    body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100vh;
+        background: url("images/background.jpg") 50% 50% no-repeat;
+        background-size: cover;
+        display: table;
+        color: azure;
+    }
+.wrap{
+    width:380px;
+    height:600px;
+    background-color:black;
+    top:50%;
+    left:50%;
+    position:absolute;
+    transform:translate(-50%,-50%);
+    padding: 5px;
+}
+form{
+  padding: 10px;
+  font-family: arial;
+  border:1px dotted white;
+  margin:10px;
+
+}
+h2{
+  text-align: center;
+  background:tomato;
+  color:white;
+  padding: 10px;
+  border-radius: 10px;
+  text-transform:uppercase;
+}
+input{
+  padding:10px;
+  margin:5px;
+  border: none;
+}
+input[type=text],input[type=email],input[type=password],input[type=number],input[type=confrmpas]{
+  width:90%;
+  border: none;
+  border-bottom: solid;
+  background: transparent;
+  outline: none;
+  color: #fff;
+  font-size: 16px;
+}
+    input[type=Submit] {
+        width: 95%;
+        background: tomato;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: bold;
+        color: white;
+        transition: 0.7s;
+    }
+input[type=Submit]:hover{
+  background:black;
+  color:tomato;
+  border:2px solid lightblue;
+  transition:0.7s;
+}
+
+</style>
+</head>
+  
+<body>
+    <div class="wrap">
+      <form method="POST" action="logic.php">
+        <h2>signup Free</h2>
+        <input type="text" name="username" placeholder="Your Name">
+        <input type="email" name="email" placeholder="Email">
+        <input type="number"name="number" placeholder="Number">
+        <input type="password"name="password" placeholder="Password">
+        <input type="password"name="confrmpas" placeholder="Confirm Password">
+        <br>
+        <br>
+        <span style="font-size: 18px;">Date of birth</span>
+        <br>
+       <input type="date" name="dob" />
+        <br>
+        <br>
+        <label><b>Gender:</b></label>
+        <input type="radio" name="gender" value="Male">Male
+        <input type="radio" name="gender" value="Female">Female
+        <br>
+        <input type="checkbox">I agree to term of use
+        <br>
+        <input type="Submit" value="Submit Now">
+      </form>
+        </div>
+</body>
+</html>

@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#userImg").click(function(){
+				$(".popUp").slideToggle("slow");
+			});
+			$("#logout").click(function(){
+					$(".popUp").hide();
+				});
+
+		});
+	</script>
+	<title>Dashboard</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    background: url(images/background.jpg) 50% 50% no-repeat;
+    background-size: cover;
+    display: table;
+    color: azure;
+}
+		.sideNav{
+			height: 100vh;
+			width: 20%;
+			background-color: #151716;
+			float: left;
+		}
+		.header{
+			height: 50px;
+			width: 80%;
+			float: left;
+			background-color: #293D55;
+		}
+		.tag{
+			height: 50px;
+			width: 100%;
+			background-color: #2B3537;
+			color: white;
+		}
+		#sub1{
+			font-size: 22px;
+			display: inline-block;
+			font-family: sans-serif;
+			font-weight: bold;
+			padding-left:50px;
+			padding-top: 10px;
+		}
+		#sub2{
+			font-size: 22px;
+			display: inline-block;
+			font-family: sans-serif;
+			font-weight: bold;
+			color: tomato;
+			padding-left:5px;
+		}
+		.userName{
+			height: 90px;
+			width: 100%;
+			background-color: tomato;
+		}
+		.userName h2{
+			text-align: center;
+			color: black;
+			font-family: sans-serif;
+			font-weight: bold;
+			padding-top: 15px;
+		}
+		.userName h3{
+			text-align: center;
+			color: white;
+			font-family: sans-serif;
+			font-weight: bold;
+			padding-top: 5px;
+		}
+		.navLinks{
+			width: 100%;
+		}
+		.link{
+			color: white;
+			border-top: 1px solid grey;
+			border-bottom: 1px solid grey;
+			padding:15px;
+			font-size: 18px;		
+		}
+		.link i{
+			display: inline-block;
+		}
+		.link p{
+			display: inline-block;
+			padding-left:20px; 
+		}
+		.link:hover{
+			background-color: #293D55;
+			color: tomato;
+			transition: 0.7s;
+		}
+		.leftIcon{
+			float: left;
+			height: 50px;
+			width: 50px;
+		}
+		.leftIcon i{
+			color: tomato;
+			font-size: 25px;
+			padding: 14px;
+		}
+		.rightIcons{
+			height: 50px;
+			width: 250px;
+			float: right;
+		}
+		.rightIcons i{
+			color: tomato;
+			padding: 10px;
+			font-size: 20px;
+			vertical-align: 12px;
+		}
+		.rightIcons img{
+			margin-left: 15px;
+		}
+		.rightIcons i:hover{
+			outline:1px solid tomato;
+			border-radius: 5px;
+		}
+		.popUp{
+			height: 50px;
+			width: 100px;
+			background-color: #293D55;
+			float: right;
+			display: none;
+			border:2px solid tomato;
+			border-radius: 20px;
+		}
+		.popUp a{
+			text-decoration: none;
+			color: tomato;
+			font-size: 20px;
+			padding: 20px;
+			line-height: 50px;
+		}
+		.box{
+			background-color: black;
+			height: 650px;
+			width: 70%;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-35%,-50%);
+			border:5px solid tomato;
+		}
+		.nestedBox{
+			background-color: black;
+			height: 550px;
+			width: 90%;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			border:5px solid #33cc33;
+			color: white
+		}
+		table{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+		}
+		input[type="text"],input[type="password"],input[type="number"]{
+			padding: 10px;
+			border:none;
+			outline: none;
+			border-bottom: 2px solid tomato;
+			background-color: transparent;
+			color: white;
+		}
+		.country,.Currency{
+			padding: 10px;
+			border:none;
+			outline: none;
+			border-bottom: 2px solid tomato;
+			background-color: transparent;
+			color: white;
+			background-color: black;
+		}
+		input[type="submit"]{
+			padding: 10px;
+			border:none;
+			outline: none;
+			background-color: #33cc33;
+			width: 100px;
+			color: black;
+			cursor: pointer;
+			margin-top: 20px;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="sideNav">
+		<div class="tag">
+			<h2 id="sub1">Health</h2> <h2 id="sub2">Admin</h2>
+		</div>
+		<div class="userName">
+			<h2>Welcome</h2>
+			<h3>Mr.User</h3>
+		</div>
+		<div class="navLinks">
+			<a href="dashboardLayout.html"><div class="link"><i class="fas fa-tachometer-alt"></i><p>Dashboard</p></div></a>
+			<a href="#"><div class="link"><i class="fas fa-user-md"></i><p>Doctor</p></div></a>
+			<a href="Patient.html"><div class="link"><i class="fas fa-user-alt"></i><p>Patient</p></div></a>
+			<a href="#"><div class="link"><i class="fas fa-sitemap"></i><p>Department</p></div></a>
+			<a href="Schedule.html"><div class="link"><i class="fas fa-clipboard-list"></i><p>Schedule</p></div></a>
+			<a href="appointment.html"><div class="link"><i class="far fa-calendar-check"></i><p>Appointment</p></div></a>
+			<a href="Payment.html"><div class="link"><i class="far fa-credit-card"></i><p>Payment</p></div></a>
+			<a href="#"><div class="link"><i class="fas fa-file-medical-alt"></i><p>Report</p></div></a>
+			<a href="#"><div class="link"><i class="fas fa-bed"></i><p>Bed Manager</p></div></a>
+			<a href="#"><div class="link"><i class="far fa-file-alt"></i><p>Notice</p></div></a>
+			<a href="#"><div class="link"><i class="fas fa-power-off"></i><p>Logout</p></div></a>
+		</div>
+	</div>
+	<div class="header">
+		<div class="leftIcon">
+			<a href=""><i class="fas fa-align-justify"></i></a>
+		</div>	
+		<div class="rightIcons">
+			<a href="#"><i class="fas fa-shopping-cart"></i></a>
+			<a href="#"><i class="fas fa-envelope"></i></a>
+			<a href="#"><i class="fas fa-bell"></i></a>
+			<a href="#"><i class="far fa-file-alt"></i></a>
+			<a href="#"><img src="images/user.png" height="45" width="50" id="userImg"></a>
+		</div>
+	</div>
+	<div class="popUp">
+		<a href="" id="logout">Logout</a>
+	</div>
+	<div class="box">
+		<h1 align="center">Payment Detail</h1>
+		<div class="nestedBox">
+			
+			<table align="center">
+				<tr>
+					<td><label>Full_Name</label></td>
+					<td><input type="text" placeholder="UserName"></td>
+				</tr>
+				<tr>
+					<td><label>Address</label></td>
+					<td><input type="text" placeholder="Address"></td>
+				</tr>
+				<tr>
+					<td><label>City</label></td>
+					<td><input type="text" placeholder="City"></td>
+				</tr>
+				<tr>
+					<td><label>Postal_code</label></td>
+					<td><input type="password" placeholder="Postal_code"></td>
+				</tr>
+				<tr>
+					<td><label>Phone–landline</label></td>
+					<td><input type="number" placeholder="Landline_no"></td>
+				</tr>
+				<tr>
+					<td><label>Email</label></td>
+					<td><input type="text" placeholder="Email"></td>
+				</tr>
+
+				<tr>
+					<td><label>Country</label></td>
+					<td><select class="country">
+	<option selected="selected" value="0">---- Select ----</option>
+	<option value="AF">Afghanistan</option>
+	<option value="AL">Albania</option>
+	<option value="DZ">Algeria</option>
+	<option value="AD">Andorra</option>
+	<option value="AO">Angola</option>
+	<option value="AG">Antigua and Barbuda</option>
+	<option value="AR">Argentina</option>
+	<option value="AM">Armenia</option>
+	<option value="AU">Australia</option>
+	<option value="BW">Botswana</option>
+	<option value="BR">Brazil</option>
+	<option value="BN">Brunei Darussalam</option>
+	<option value="BG">Bulgaria</option>
+	<option value="BF">Burkina Faso</option>
+	<option value="BI">Burundi</option>
+	<option value="KH">Cambodia</option>
+	<option value="GR">Greece</option>
+	<option value="GD">Grenada</option>
+	<option value="GT">Guatemala</option>
+	<option value="GN">Guinea</option>
+	<option value="GW">Guinea Bissau</option>
+	<option value="GY">Guyana</option>
+	<option value="HT">Haiti</option>
+	<option value="HN">Honduras</option>
+	<option value="HU">Hungary</option>
+	<option value="IS">Iceland</option>
+	<option value="IN">India</option>
+	<option value="ID">Indonesia</option>
+	<option value="IR">Iran (Islamic Republic of)</option>
+	<option value="IQ">Iraq</option>
+	<option value="IE">Ireland</option>
+	<option value="IL">Israel</option>
+	<option value="IT">Italy</option>
+	<option value="JM">Jamaica</option>
+	<option value="JP">Japan</option>
+	<option value="JO">Jordan</option>
+	<option value="KZ">Kazakhstan</option>
+	<option value="KE">Kenya</option>
+	<option value="KI">Kiribati</option>
+	<option value="KW">Kuwait</option>
+	<option value="KG">Kyrgyzstan</option>
+	<option value="LA">Lao People’s Democratic Republic</option>
+	<option value="LV">Latvia</option>
+	<option value="LB">Lebanon</option>
+	<option value="LS">Lesotho</option>
+	<option value="LR">Liberia</option>
+	<option value="LY">Libya</option>
+	<option value="LI">Liechtenstein</option>
+	<option value="LT">Lithuania</option>
+	<option value="LU">Luxembourg</option>
+	<option value="MK">Macedonia</option>
+	<option value="MG">Madagascar</option>
+	<option value="MW">Malawi</option>
+	<option value="MY">Malaysia</option>
+	<option value="MV">Maldives</option>
+	<option value="ML">Mali</option>
+	<option value="MT">Malta</option>
+	<option value="MH">Marshall Islands</option>
+	<option value="MR">Mauritania</option>
+	<option value="MU">Mauritius</option>
+	<option value="MX">Mexico</option>
+	<option value="FM">Micronesia (Federated States of)</option>
+	<option value="MC">Monaco</option>
+	<option value="MN">Mongolia</option>
+	<option value="ME">Montenegro</option>
+	<option value="MA">Morocco</option>
+	<option value="MZ">Mozambique</option>
+	<option value="MM">Myanmar</option>
+	<option value="NA">Namibia</option>
+	<option value="NR">Nauru</option>
+	<option value="NP">Nepal</option>
+	<option value="NL">Netherlands</option>
+	<option value="NZ">New Zealand</option>
+	<option value="NI">Nicaragua</option>
+	<option value="NE">Niger</option>
+	<option value="NG">Nigeria</option>
+	<option value="NO">Norway</option>
+	<option value="OM">Oman</option>
+	<option value="PK">Pakistan</option>
+	<option value="PW">Palau</option>
+	<option value="PA">Panama</option>
+	<option value="PG">Papua New Guinea</option>
+	<option value="PY">Paraguay</option>
+	<option value="PE">Peru</option>
+	<option value="PH">Philippines</option>
+	<option value="PL">Poland</option>
+	<option value="PT">Portugal</option>
+	<option value="QA">Qatar</option>
+	<option value="KR">Republic of Korea</option>
+	<option value="MD">Republic of Moldova</option>
+	<option value="RO">Romania</option>
+	<option value="RU">Russian Federation</option>
+	<option value="RW">Rwanda</option>
+	<option value="KN">Saint Kitts and Nevis</option>
+	<option value="LC">Saint Lucia</option>
+	<option value="VC">Saint Vincent and the Grenadines</option>
+	<option value="WS">Samoa</option>
+	<option value="SM">San Marino</option>
+	<option value="ST">Sao Tome and Principe</option>
+	<option value="SA">Saudi Arabia</option>
+	<option value="SN">Senegal</option>
+	<option value="RS">Serbia</option>
+	<option value="SC">Seychelles</option>
+	<option value="SL">Sierra Leone</option>
+	<option value="SG">Singapore</option>
+	<option value="SK">Slovakia</option>
+	<option value="SI">Slovenia</option>
+	<option value="SB">Solomon Islands</option>
+	<option value="SO">Somalia</option>
+	<option value="ZA">South Africa</option>
+	<option value="SS">South Sudan</option>
+	<option value="ES">Spain</option>
+	<option value="LK">Sri Lanka</option>
+	<option value="SD">Sudan</option>
+	<option value="SR">Suriname</option>
+	<option value="SZ">Swaziland</option>
+	<option value="SE">Sweden</option>
+	<option value="CH">Switzerland</option>
+	<option value="SY">Syrian Arab Republic</option>
+	<option value="TJ">Tajikistan</option>
+	<option value="TZ">Tanzania</option>
+	<option value="TH">Thailand</option>
+	<option value="TL">Timor-Leste</option>
+	<option value="TG">Togo</option>
+	<option value="TO">Tonga</option>
+	<option value="TT">Trinidad and Tobago</option>
+	<option value="TN">Tunisia</option>
+	<option value="TR">Turkey</option>
+	<option value="TM">Turkmenistan</option>
+	<option value="PK">Pakistan</option>
+</select></td>
+				</tr>
+				<tr>
+					<td><label>Currency</label></td>
+					<td><select class="Currency">
+						<option value="0">---- Select ----</option>
+						<option value="5">PKR-Pakistani Rupee</option>
+						<option value="2">USD-United States Dollar</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td><label>Amount</label></td>
+					<td><input type="number" placeholder="Amount "></td>
+				</tr>
+				<tr>
+					<td align="center" colspan="2"><input type="submit" value="Submit"></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</body>
+</html>
